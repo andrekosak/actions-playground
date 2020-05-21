@@ -1,6 +1,8 @@
 name: Share data between jobs
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   job_1:
