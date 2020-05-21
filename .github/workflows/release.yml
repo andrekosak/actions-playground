@@ -16,7 +16,7 @@ jobs:
           GITHUB_TAG: ${{ github.ref }}
         run: |
           echo "$GITHUB_CONTEXT"
-          export CURRENT_TAG=${GITHUB_TAG/refs\/tags\//}
+          export CURRENT_TAG=${GITHUB_TAG/refs\/tags\/v/}
           echo "::set-env name=CURRENT_TAG::$CURRENT_TAG"
       
       - name: Checkout code
