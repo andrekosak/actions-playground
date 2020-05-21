@@ -2,7 +2,8 @@ name: Share data between jobs
 
 on:
   push:
-    branches: [ master ]
+    branches-ignore:
+      - master
 
 jobs:
   job_1:
