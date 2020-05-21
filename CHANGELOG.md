@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 - Hot stuff
 - Baby this evening
 
+## [1.0.17] - 2020-20-20
+
+### All about 1.0.17
+- Hot stuff
+- Baby this evening
+
 ## [v1.0.16] - 2020-20-20
 
 ### All about 1.0.16
