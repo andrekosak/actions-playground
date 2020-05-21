@@ -1,9 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.0.15] - 2020-20-20
+## [v1.0.20] - 2020-20-20
 
-### All about 1.0.15
+### All about 1.0.20
+- Hot stuff
+- Baby this evening
+
+## [v1.0.16] - 2020-20-20
+
+### All about 1.0.16
 - Hot stuff
 - Baby this evening
 
