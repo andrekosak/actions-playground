@@ -10,8 +10,14 @@ jobs:
     name: Create release
     runs-on: ubuntu-latest
     steps:
+      - name: Show env
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
           zip --junk-paths my-artifact README.md
@@ -43,5 +49,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: ./my-artifact.zip
-          asset_name: release-${{ github.ref }}.zip
+          asset_name: ${{ github.ref }}.zip
           asset_content_type: application/zip
