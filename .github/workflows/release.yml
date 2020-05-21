@@ -13,7 +13,11 @@ jobs:
       - name: Show env
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+          GITHUB_TAG: ${{ github.ref }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+          export CURRENT_TAG=${GITHUB_TAG/refs\/tags\//}
+          echo "::set-env name=CURRENT_TAG::$CURRENT_TAG"
       
       - name: Checkout code
         uses: actions/checkout@v2
@@ -26,7 +30,7 @@ jobs:
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v1.1.0
         with:
-          version: ${{ github.ref }}
+          version: $CURRENT_TAG
           path: ./CHANGELOG.md
 
       - name: Create Release
