@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### All about 1.0.22
 - Hot stuff
 - Baby this evening
+
 ## [1.0.21] - 2020-20-20
 
 ### All about 1.0.21
