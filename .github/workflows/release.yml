@@ -9,12 +9,7 @@ jobs:
   release:
     name: Create release
     runs-on: ubuntu-latest
-    steps:
-      - name: Get version from tag
-        id: tag_name
-        run: |
-          echo "current_version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
-      
+    steps:      
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -27,7 +22,7 @@ jobs:
         uses: mindsers/changelog-reader-action@v2
         with:
           validation_level: warn
-          version: ${{ steps.tag_name.outputs.current_version }}
+          version: ${{ github.ref }}
           path: ./CHANGELOG.md
 
       - name: Create Release
