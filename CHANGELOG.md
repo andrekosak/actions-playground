@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## [1.1.1] - 2025-04-12
+
+### What's Changed
+
+- Fixed bug in user authentication module in #25
+- Updated dependencies to latest versions
+- Improved error handling for API requests
+- Added documentation for new features
+
 ## [1.1.0] - 2025-04-12
 
 ### What's Changed
