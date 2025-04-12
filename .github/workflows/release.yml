@@ -28,8 +28,9 @@ jobs:
 
       - name: Get Changelog Entry
         id: changelog_reader
-        uses: mindsers/changelog-reader-action@v1.1.0
+        uses: mindsers/changelog-reader-action@v2
         with:
+          validation_level: warn
           version: ${{ env.CURRENT_TAG }}
           path: ./CHANGELOG.md
 
