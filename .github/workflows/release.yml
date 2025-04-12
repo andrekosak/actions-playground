@@ -10,14 +10,10 @@ jobs:
     name: Create release
     runs-on: ubuntu-latest
     steps:
-      - name: Show env
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-          GITHUB_TAG: ${{ github.ref }}
+      - name: Get version from tag
+        id: tag_name
         run: |
-          echo "$GITHUB_CONTEXT"
-          export CURRENT_TAG=${GITHUB_TAG/refs\/tags\/v/}
-          echo "::set-env name=CURRENT_TAG::$CURRENT_TAG"
+          echo "current_version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
       
       - name: Checkout code
         uses: actions/checkout@v2
@@ -31,7 +27,7 @@ jobs:
         uses: mindsers/changelog-reader-action@v2
         with:
           validation_level: warn
-          version: ${{ env.CURRENT_TAG }}
+          version: ${{ steps.tag_name.outputs.current_version }}
           path: ./CHANGELOG.md
 
       - name: Create Release
