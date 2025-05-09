@@ -1,9 +1,6 @@
 name: Share data between jobs
 
-on:
-  push:
-    branches-ignore:
-      - master
+on: [push]
 
 jobs:
   job_1:
@@ -28,15 +25,23 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: homework
+
       - shell: bash
         run: |
           value=`cat homework/math-homework.txt`
           expr $value \* 9 > homework/math-homework.txt
+          cd homework
+          pwd
+
       - name: Upload math result for job 2
         uses: actions/upload-artifact@v1
         with:
           name: homework
           path: homework/math-homework.txt
+
+      - shell: bash
+        run: |
+          pwd
 
   job_3:
     name: Display results
